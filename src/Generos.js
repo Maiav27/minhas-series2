@@ -51,6 +51,7 @@ const Generos = () =>{
           </thead>
           <tbody>
          {data.map(renderizaLinha)}
+         
           </tbody>
         </table>
         
