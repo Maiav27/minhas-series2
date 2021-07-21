@@ -1,19 +1,19 @@
 import axios from 'axios'
-import { json } from 'body-parser'
+
 import { useEffect, useState } from 'react'
 
 const Generos = () =>{
-  const[data, setData] = useState({})
+  const[data, setData] = useState([])
 
   useEffect(() => {
     axios.get('/api/genres').then(resp => {
-     setData(resp.data.data) 
+   setData(resp.data.data) 
     })
   }, [])
 
   const renderizaLinha = (record) =>{
 
-    
+      
         return(
           <tr key={record.id}>
             <th scope='row'>{record.id}</th>
@@ -34,13 +34,14 @@ const Generos = () =>{
             </div>
           )
         }
+        console.log(data)
 
-       console.log(data.length)
+       
 
     return(
       <div className='container'>
 
-        <h1>Generos</h1>
+        <h1>Gêneros</h1>
         <table className='table table-dark' >
           <thead>
             <tr>
@@ -50,7 +51,8 @@ const Generos = () =>{
             </tr>
           </thead>
           <tbody>
-         {data.map(renderizaLinha)}
+          
+         {data.length > 0 && data.map(renderizaLinha)}
          
           </tbody>
         </table>

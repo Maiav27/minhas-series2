@@ -5,7 +5,8 @@ import Home from './Home'
 import Generos from './Generos'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
-
+import Button from './Button'
+import NovoGenero from './NovoGenero'
 
 
 
@@ -19,6 +20,8 @@ function App() {
      })
     
    }, [])
+
+   
   return (
     <Router>
       <div className="App">
@@ -26,10 +29,17 @@ function App() {
       <Header/>
       <Route path='/' exact component={Home}/>    
       <Route path='/generos' exact component={Generos}/>
-
+      <Route path='/novogenero' exact component={NovoGenero}/>
+      
+          
       </div>
+    
+      
     </Router>
   );
 }
+
+// se uma função é colocada no onClick  com (), elas é chamada na hora que a página renderizada, sem , somente no clique
+
 
 export default App;

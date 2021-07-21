@@ -17,7 +17,13 @@ const Header = () =>{
             <Nav className='ml-auto' navbar>
             <NavItem>
                 <NavLink tag={Link} to='/generos'> 
-                Gêneros 
+                  Gêneros 
+                </NavLink>
+                
+            </NavItem>
+            <NavItem>
+                <NavLink tag={Link} to='/novogenero'> 
+                  Novo Gênero
                 </NavLink>
             </NavItem>
             </Nav>
