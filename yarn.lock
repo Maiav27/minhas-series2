@@ -7213,9 +7213,9 @@ min-indent@^1.0.0:
   resolved "https://registry.yarnpkg.com/min-indent/-/min-indent-1.0.1.tgz#a63f681673b30571fbe8bc25686ae746eefa9869"
   integrity sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==
 
-"minhas-series-server@https://github.com/tuliofaria/minhas-series-server":
+"minhas-series-server@https://github.com/devpleno/minhas-series-server":
   version "2.0.0"
-  resolved "https://github.com/tuliofaria/minhas-series-server#60115a13563b367343ec6ea5bd986b247590bcdd"
+  resolved "https://github.com/devpleno/minhas-series-server#7957dfed955ad28310c35a363929e266ad315519"
   dependencies:
     axios "^0.21.1"
     body-parser "^1.19.0"

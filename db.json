@@ -1,83 +1,40 @@
 {
   "series": {
-    "1": {
-      "name": "La casa de papel",
-      "status": "WATCHED",
-      "genre_id": 1,
-      "comments": "",
-      "poster": "//image.tmdb.org/t/p/original/yVUAfbrP5HDJugXraB7KQS0yz6Z.jpg",
-      "background": "//image.tmdb.org/t/p/original/piuRhGiQBYWgW668eSNJ2ug5uAO.jpg"
+    "1627054864552": {
+      "name": "A casinha de papel",
+      "poster": "",
+      "background": ""
+    },
+    "1627301751473": {
+      "name": "la casa de papel",
+      "poster": "//image.tmdb.org/t/p/original/xbWU5kx85MrvWAvlh1jCHXyJk3Z.jpg",
+      "background": "//image.tmdb.org/t/p/original/xGexTKCJDkl12dTW4YCBDXWb1AD.jpg"
     }
   },
   "genres": {
     "1": {
-      "name": "Ação"
+      "name": "Paródia"
     },
-    "2": {
+    "1627054779949": {
+      "name": "Terror"
+    },
+    "1627129277621": {
+      "name": "Suspense"
+    },
+    "1627129423310": {
       "name": "Comédia"
     },
-    "1626896515169": {
-      "name": "Adulto"
+    "1627129485475": {
+      "name": "Infantil"
     },
-    "1626896530375": {
-      "name": "princesas"
+    "1627129632042": {
+      "name": "Luta"
     },
-    "1626896606872": {
-      "name": "fjhfgjfghjfgj"
+    "1627129660105": {
+      "name": "Tiro"
     },
-    "1626896714649": {
-      "name": " r"
-    },
-    "1626896729670": {
-      "name": ""
-    },
-    "1626896735015": {
-      "name": ""
-    },
-    "1626896763086": {
-      "name": " fsdfsfsdf"
-    },
-    "1626896826200": {
-      "name": ""
-    },
-    "1626896843942": {
-      "name": ""
-    },
-    "1626896851955": {
-      "name": ""
-    },
-    "1626896900613": {
-      "name": "sdfsdfsdf"
-    },
-    "1626896975938": {
-      "name": "fdsfsdfafafdasdf"
-    },
-    "1626896983291": {
-      "name": "fsdfsdfsdf"
-    },
-    "1626897001576": {
-      "name": "sfasdfasdfasf"
-    },
-    "1626897339891": {
-      "name": "sfasdfasdfasf"
-    },
-    "1626897516009": {
-      "name": "luta"
-    },
-    "1626897561704": {
-      "name": "cavalo"
-    },
-    "1626897642102": {
-      "name": "hulk"
-    },
-    "1626897715331": {
-      "name": "marcos"
-    },
-    "1626897735259": {
-      "name": "dfsdfsdf"
-    },
-    "1626897755899": {
-      "name": "kjkjk"
+    "1627129924221": {
+      "name": "Anime"
     }
   },
   "count": 0

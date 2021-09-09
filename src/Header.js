@@ -15,17 +15,18 @@ const Header = () =>{
   
         <Collapse isOpen={true} navbar>
             <Nav className='ml-auto' navbar>
-            <NavItem>
-                <NavLink tag={Link} to='/generos'> 
-                  Gêneros 
-                </NavLink>
-                
-            </NavItem>
-            <NavItem>
-                <NavLink tag={Link} to='/novogenero'> 
-                  Novo Gênero
-                </NavLink>
-            </NavItem>
+              <NavItem>
+                  <NavLink tag={Link} to='/generos'> 
+                    Gêneros 
+                  </NavLink>  
+              </NavItem>
+              <NavItem>
+                  <NavLink tag={Link} to='/series'> 
+                    Séries
+                  </NavLink>  
+              </NavItem>
+
+
             </Nav>
         </Collapse>
      </Navbar>

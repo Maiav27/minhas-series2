@@ -4,20 +4,22 @@ import { useEffect, useState } from 'react'
 
 import {Link} from 'react-router-dom'
 
-const Generos = () =>{
+const Series = () =>{
   const[data, setData] = useState([])
  // const [atualizar, setAtualizar] = useState(false) // se colocarmos uma variavel no array do useEffect ele se torna dependente dela, logo quando a varaivel  for alterada o useEffect é executado
   useEffect(() => {
-    axios.get('/api/genres').then(resp => {
+    axios.get('/api/series').then(resp => {
    setData(resp.data.data) 
     })
-  }, []) 
 
-  const deleteGenero = (id) =>{
-     axios.delete(`/api/genres/${id}`).then(res =>{
+  }, []) // aqui  poderia ser colocado a váriavel atualizar assim, todas as que o valor dela fosse alterado, nesse caso, a lista de séries  seria atualizada, caso alguma série fpsse excluida
+
+
+  const deleteSeries = (id) =>{
+     axios.delete(`/api/series/${id}`).then(res =>{
        console.log(res)
      //  setAtualizar(!atualizar)
-        const filtro = data.filter( genero => genero.id != id)
+        const filtro = data.filter( serie => serie.id != id) // aqui sera retornado todas as séries, exceto aqui tem o  id  igual o id passado pra função
         setData(filtro)
      })
   }
@@ -29,8 +31,8 @@ const Generos = () =>{
           <tr key={record.id}>
             <th scope='row'>{record.id}</th>
             <td>{record.name}</td>
-            <td><button className="btn btn-danger" onClick={() =>deleteGenero(record.id)}>Excluir</button>
-            <button className="btn btn-warning" style={{marginLeft : '8px'}}><Link style={{ textDecoration : 'none', color : 'black'  }} to={`/generos/${record.id}`}>Editar</Link></button>
+            <td><button className="btn btn-danger" onClick={() =>deleteSeries(record.id)}>Excluir</button>
+            <button className="btn btn-warning" style={{marginLeft : '8px'}}><Link style={{ textDecoration : 'none', color : 'black'  }} to={`/series/${record.id}`}>Info Série</Link></button>
             </td>
             
           </tr>
@@ -41,14 +43,14 @@ const Generos = () =>{
         if(data.length === 0 || !data){
           return(
             <div className='container'>
-               <h1>Gêneros</h1>
+               <h1>Séries</h1>
                <div>
-                <button className='btn btn-primary' style ={{marginBottom : '8px'}}>
-                  <Link to='/generos/novo' style={{textDecoration : 'none', color : 'white'}}>Novo Gênero</Link>
-                </button>
+                  <button className='btn btn-primary' style ={{marginBottom : '8px'}}>
+                    <Link to='/series/novo' style={{textDecoration : 'none', color : 'white'}}>Nova Série</Link>
+                  </button>
                </div>
                <div className='alert alert-warning' role='alert'>
-                  Você não possui gêneros criados
+                  Você não possui séries criadas
                </div>
             </div>
           )
@@ -60,10 +62,10 @@ const Generos = () =>{
     return(
       <div className='container'>
 
-        <h1>Gêneros</h1>
+        <h1>Séries</h1>
         <div>
           <button className='btn btn-primary' style ={{marginBottom : '8px'}}>
-            <Link to='/generos/novo' style={{textDecoration : 'none', color : 'white'}}>Novo Gênero</Link>
+            <Link to='/series/novo' style={{textDecoration : 'none', color : 'white'}}>Nova Série</Link>
           </button>
         </div>
         <table className='table table-dark' >
@@ -85,4 +87,4 @@ const Generos = () =>{
       </div>
     )
   }
-  export default Generos
+  export default Series
