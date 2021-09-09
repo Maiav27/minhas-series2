@@ -8,7 +8,7 @@ const InfoSerie = ({match}) =>{
     const [success, setSuccess] = useState(false)
     const [data, setData] = useState({})
     const [mode, setMode] = useState(false)
-    const [editar, setEditar] = useState('Editar')
+ 
     
 
     useEffect(() => {
@@ -46,17 +46,13 @@ const InfoSerie = ({match}) =>{
          
          setMode(!mode) 
          
-
-         if(mode === false){
-            setEditar('Cancelar Inscrição') 
-         }else{
-            setEditar('Editar')  
-         }
+      //   console.log(mode)
+       
   
         
               
     }
-  //console.log(mode)
+  console.log(mode)
 
     if(success){
       return  <Redirect to='/series'/>   
@@ -74,8 +70,8 @@ const InfoSerie = ({match}) =>{
                     <div className='col-8'>
                         <h1 className='font-weight-light text-white'>{data.name}</h1>
                         <div className='lead text-white'>
-                        <Badge color='warning'>Para Assistir</Badge>
-                        <Badge  color='success'>Teste</Badge>
+    
+                        <Badge >Teste</Badge>
                            Gênero : {data.genre_name}
                         </div>
                     </div>
@@ -84,14 +80,16 @@ const InfoSerie = ({match}) =>{
            </div>
         </header>
         <div>
-            <button onClick={changeEditar}>{editar}</button>
-        </div>
+            <button onClick={changeEditar}>{mode ? 'Cancelar Edição' : 'Editar'}</button>
+            </div>
+          
         {
             mode === true  &&
         
             <div className='container'>
             
                 <h1>Nova Série </h1> 
+                
                 <pre>{JSON.stringify(data)}</pre>
                 <form action="">
                     <div className=' form form-group'>
