@@ -71,7 +71,8 @@ const InfoSerie = ({match}) =>{
                         <h1 className='font-weight-light text-white'>{data.name}</h1>
                         <div className='lead text-white'>
     
-                        <Badge >Teste</Badge>
+                        <Badge color='success' >Assistido</Badge>
+                        <Badge color='warning'>Para assistir</Badge>
                            Gênero : {data.genre_name}
                         </div>
                     </div>
