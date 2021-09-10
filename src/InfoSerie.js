@@ -81,8 +81,8 @@ const InfoSerie = ({match}) =>{
            </div>
         </header>
         <div>
-            <button onClick={changeEditar}>{mode ? 'Cancelar Edição' : 'Editar'}</button>
-            </div>
+            <button onClick={changeEditar} type='button' className={mode ? 'btn btn-danger' : 'btn btn-primary'} style={{marginTop : '10px', marginLeft : '10px'}}>{mode ? 'Cancelar Edição' : 'Editar'}</button>
+     </div>
           
         {
             mode === true  &&
