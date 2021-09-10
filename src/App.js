@@ -3,9 +3,7 @@ import Header from './Header'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './Home'
 import Generos from './Generos'
-import {useEffect, useState} from 'react'
-import axios from 'axios'
-import Button from './Button'
+
 import NovoGenero from './NovoGenero'
 import EditarGenero from './EditarGenero'
 import Series from './Series'
@@ -16,12 +14,7 @@ import InfoSerie from './InfoSerie'
 
 
 function App() {
-   const [data, setData] = useState({})
-   useEffect(() =>{
-     axios.get('/api').then(res => {
-       setData(res.data)
-     })
-    } )
+  
     
   
    

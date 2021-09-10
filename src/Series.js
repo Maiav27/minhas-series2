@@ -19,7 +19,7 @@ const Series = () =>{
      axios.delete(`/api/series/${id}`).then(res =>{
        console.log(res)
      //  setAtualizar(!atualizar)
-        const filtro = data.filter( serie => serie.id != id) // aqui sera retornado todas as séries, exceto aqui tem o  id  igual o id passado pra função
+        const filtro = data.filter( serie => serie.id !== id) // aqui sera retornado todas as séries, exceto aqui tem o  id  igual o id passado pra função
         setData(filtro)
      })
   }
