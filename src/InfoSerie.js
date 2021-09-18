@@ -4,20 +4,29 @@ import { Redirect } from "react-router-dom";
 import { Badge } from "reactstrap";
 
 const InfoSerie = ({match}) =>{
-    const [name, setName] = useState('')
+   
+    const [form, setForm] = useState({})
     const [success, setSuccess] = useState(false)
     const [data, setData] = useState({})
     const [mode, setMode] = useState(false)
+    const [genres, setGenres] = useState([])
  
     
 
     useEffect(() => {
         axios.get(`/api/series/${match.params.id}`)
-        .then(resp => {setData(resp.data) 
+        .then(resp => {
+            setData(resp.data) 
+            setForm(resp.data)
         console.log(resp)})
 
-
+        
     },[match.params.id])
+
+     useEffect(()=>{
+        axios.get('/api/genres/')
+        .then(res => setGenres(res.data.data))
+     }, [])
 
     const masterHeader = {
         height : '50vh',
@@ -29,15 +38,15 @@ const InfoSerie = ({match}) =>{
    //console.log(data)
 
 
-    const onChange = evt =>{
-        setData({ ...data, name : evt.target.value })
+    const onChange = field => evt =>{
+        setForm({ ...form, [field] : evt.target.value })
        
     }
 
+ 
+
     const save = () => {
-        axios.post('/api/series' , {
-           name 
-        })
+        axios.put('/api/series/' + match.params.id, form)
         .then((res) => setSuccess(false))
      //   document.getElementById('input').value = ''
     }
@@ -52,11 +61,11 @@ const InfoSerie = ({match}) =>{
         
               
     }
-  console.log(mode)
+  //console.log(mode)
 
-    if(success){
-      return  <Redirect to='/series'/>   
-    }
+   // if(success){
+  //    return  <Redirect to='/series'/>   
+ //   }
 
     return(
         <div>
@@ -96,11 +105,32 @@ const InfoSerie = ({match}) =>{
             
                 <h1>Nova Série </h1> 
                 
-                <pre>{JSON.stringify(data)}</pre>
+                <pre>{JSON.stringify(form)}</pre>
+               
                 <form action="">
-                    <div className=' form form-group'>
+                    <div className='form form-group'>
                         <label htmlFor='name'>Nome</label>
-                        <input type="text" id='input' className='form-control' value={data.name} onChange={onChange} placeholder='Nome da série' />
+                        <input type="text" id='input' className='form-control' value={form.name} onChange={  onChange('name')} placeholder='Nome da série' />
+                    </div>
+                    <div className='form form-group'>
+                        <label htmlFor='name'>Comentários</label>
+                        <input type="text" id='input' className='form-control' value={form.comments} onChange={onChange('comments')} placeholder='Nome da série' />
+                    </div>
+                    <div className='form form-group'>
+                         <select className= 'form-control' onChange={onChange('genre_id')}   >
+
+                            {genres.map(genre =>{
+                                let select 
+                               
+                                genre.id === form.genre_id ? select = true : select = false
+                                console.log(select)
+                                console.log(typeof(form.genre_id))
+                                return(      
+                                    <option key={genre.id} value={genre.id} selected={genre.id == form.genre_id} >{genre.name}</option>                                    
+                                    )
+                                    })}
+                                    
+                         </select>
                     </div>
                     <button onClick={save} type='button' className='btn btn-primary' style={{marginTop : '10px'}}>Salvar</button>
                 </form>
