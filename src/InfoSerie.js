@@ -43,6 +43,13 @@ const InfoSerie = ({match}) =>{
        
     }
 
+    const seleciona = value => () =>{
+        setForm({
+            ...form,
+            status : value
+        })
+    }
+
  
 
     const save = () => {
@@ -79,9 +86,9 @@ const InfoSerie = ({match}) =>{
                     <div className='col-8'>
                         <h1 className='font-weight-light text-white'>{data.name}</h1>
                         <div className='lead text-white'>
-    
-                        <Badge color='success' >Assistido</Badge>
-                        <Badge color='warning'>Para assistir</Badge>
+                        {data.status === 'PARA_ASSISTIR' ? <Badge color='warning'>Para assistir</Badge> : <Badge color='success'>Assistido</Badge>  }
+                       
+                        
                            Gênero : {data.genre_name}
                         </div>
                     </div>
@@ -105,6 +112,7 @@ const InfoSerie = ({match}) =>{
             
                 <h1>Nova Série </h1> 
                 
+                <pre>{JSON.stringify(data)}</pre>
                 <pre>{JSON.stringify(form)}</pre>
                
                 <form action="">
@@ -129,12 +137,12 @@ const InfoSerie = ({match}) =>{
                          </select>
                     </div>
                     <div className="form-check">
-                        <input  className="form-check-input" type='radio' value='PARA_ASSISTIR' />
+                        <input  className="form-check-input" type='radio' name='status' value='PARA_ASSISTIR' checked={data.status === 'PARA_ASSISTIR'} onClick={ seleciona('PARA_ASSISTIR')} />
                         <label className='form-check-label' htmlFor="paraAssistir">Para assistir</label>
                     </div>
                     <div className="form-check">
-                        <input  className="form-check-input" type='radio' value='ASSISTIDO' />
-                        <label className='form-check-label' htmlFor="paraAssistir">Assistido</label>
+                        <input  className="form-check-input" type='radio' name='status' value='ASSISTIDO' checked={data.status === 'ASSISTIDO'} onClick={ seleciona('ASSISTIDO')}/>
+                        <label className='form-check-label' htmlFor="assistido">Assistido</label>
                     </div>
                     <button onClick={save} type='button' className='btn btn-primary' style={{marginTop : '10px'}}>Salvar</button>
                 </form>
