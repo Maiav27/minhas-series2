@@ -18,7 +18,7 @@ const InfoSerie = ({match}) =>{
         .then(resp => {
             setData(resp.data) 
             setForm(resp.data)
-        console.log(resp)})
+        })
 
         
     },[match.params.id])
@@ -129,8 +129,12 @@ const InfoSerie = ({match}) =>{
                          </select>
                     </div>
                     <div className="form-check">
-                        <input  className="form-check-input" type='radio' />
-                        <label className='form-check-label' htmlFor=""></label>
+                        <input  className="form-check-input" type='radio' value='PARA_ASSISTIR' />
+                        <label className='form-check-label' htmlFor="paraAssistir">Para assistir</label>
+                    </div>
+                    <div className="form-check">
+                        <input  className="form-check-input" type='radio' value='ASSISTIDO' />
+                        <label className='form-check-label' htmlFor="paraAssistir">Assistido</label>
                     </div>
                     <button onClick={save} type='button' className='btn btn-primary' style={{marginTop : '10px'}}>Salvar</button>
                 </form>
