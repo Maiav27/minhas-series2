@@ -120,17 +120,17 @@ const InfoSerie = ({match}) =>{
                          <select className= 'form-control' onChange={onChange('genre_id')}   >
 
                             {genres.map(genre =>{
-                                let select 
-                               
-                                genre.id === form.genre_id ? select = true : select = false
-                                console.log(select)
-                                console.log(typeof(form.genre_id))
+                                
                                 return(      
-                                    <option key={genre.id} value={genre.id} selected={genre.id == form.genre_id} >{genre.name}</option>                                    
+                                    <option key={genre.id} value={genre.id} selected={genre.id === `${form.genre_id}`} >{genre.name}</option>                                    
                                     )
                                     })}
                                     
                          </select>
+                    </div>
+                    <div className="form-check">
+                        <input  className="form-check-input" type='radio' />
+                        <label className='form-check-label' htmlFor=""></label>
                     </div>
                     <button onClick={save} type='button' className='btn btn-primary' style={{marginTop : '10px'}}>Salvar</button>
                 </form>
