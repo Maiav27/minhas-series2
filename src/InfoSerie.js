@@ -43,7 +43,8 @@ const InfoSerie = ({match}) =>{
        
     }
 
-    const seleciona = value => () =>{
+    const seleciona = value => (evt) =>{
+        evt.target.checked = true
         setForm({
             ...form,
             status : value
@@ -136,11 +137,11 @@ const InfoSerie = ({match}) =>{
                          </select>
                     </div>
                     <div className="form-check">
-                        <input  className="form-check-input" type='radio' name='status' value='PARA_ASSISTIR' checked={data.status === 'PARA_ASSISTIR'} onClick={ seleciona('PARA_ASSISTIR')} />
+                        <input  className="form-check-input" type='radio' name='status' value='PARA_ASSISTIR'  onClick={ seleciona('PARA_ASSISTIR')} />
                         <label className='form-check-label' htmlFor="paraAssistir">Para assistir</label>
                     </div>
                     <div className="form-check">
-                        <input  className="form-check-input" type='radio' name='status' value='ASSISTIDO' checked={data.status === 'ASSISTIDO'} onClick={ seleciona('ASSISTIDO')}/>
+                        <input  className="form-check-input" type='radio' name='status' value='ASSISTIDO'  onClick={ seleciona('ASSISTIDO')}/>
                         <label className='form-check-label' htmlFor="assistido">Assistido</label>
                     </div>
                     <button onClick={save} type='button' className='btn btn-primary' style={{marginTop : '10px'}}>Salvar</button>
