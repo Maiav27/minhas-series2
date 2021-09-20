@@ -54,7 +54,7 @@ const InfoSerie = ({match}) =>{
 
     const save = () => {
         axios.put('/api/series/' + match.params.id, form)
-        .then((res) => setSuccess(false))
+        .then((res) => setSuccess(true))
      //   document.getElementById('input').value = ''
     }
 
@@ -68,11 +68,11 @@ const InfoSerie = ({match}) =>{
         
               
     }
-  //console.log(mode)
+ 
 
-   // if(success){
-  //    return  <Redirect to='/series'/>   
- //   }
+    if(success){
+     return  <Redirect to='/series'/>   
+    }
 
     return(
         <div>
@@ -110,10 +110,9 @@ const InfoSerie = ({match}) =>{
         
             <div className='container'>
             
-                <h1>Nova Série </h1> 
+                <h1>Editar Série </h1> 
                 
-                <pre>{JSON.stringify(data)}</pre>
-                <pre>{JSON.stringify(form)}</pre>
+                
                
                 <form action="">
                     <div className='form form-group'>
@@ -122,7 +121,7 @@ const InfoSerie = ({match}) =>{
                     </div>
                     <div className='form form-group'>
                         <label htmlFor='name'>Comentários</label>
-                        <input type="text" id='input' className='form-control' value={form.comments} onChange={onChange('comments')} placeholder='Nome da série' />
+                        <input type="text" id='input' className='form-control' value={form.comments} onChange={onChange('comments')} placeholder='Comentário' onChange={onChange('comments')}/>
                     </div>
                     <div className='form form-group'>
                          <select className= 'form-control' onChange={onChange('genre_id')}   >
